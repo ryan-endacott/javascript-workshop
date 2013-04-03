@@ -23,6 +23,12 @@ var webcam = (function() {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
+    // Check if browser is supported
+    if (!navigator.getUserMedia) {
+      alert('Sorry, it looks like your browser won\'t work with this project!  Try chrome or firefox!');
+      return;
+    }
+
     navigator.getUserMedia({video: true, audio: true}, function(localMediaStream) {
 
       video = document.querySelector('video');
