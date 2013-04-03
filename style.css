@@ -1,12 +1,25 @@
+h2 {
+  text-align: center;
+  margin: 0px;
+}
 
 #user-video {
+  width: 520px;
+  height: 390px;
   display: block;
   box-shadow: 3px 5px 25px #000;
 }
 
 #c1 {
+  width: 520px;
+  height: 390px;
   display: block;
   box-shadow: 3px 5px 25px #000;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .video-wrapper div {
@@ -14,4 +27,18 @@
   margin: 10px;
 }
 
+
+.clear {
+  clear: both;
+}
+
+#editor { 
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 960px;
+  height: 400px;
+  border-radius: 5px;
+  font-size: 18px;
+}
 
