@@ -10,12 +10,15 @@ var webcam = (function() {
   var width;
   var height;
 
-  var userInputArea;
+  var editor;
 
   var FPS = 1000 / 30;
 
 
-  function setup() {
+  // Setup takes the ACE editor as input
+  function setup(textEditor) {
+
+    editor = textEditor;
 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -81,13 +84,7 @@ var webcam = (function() {
       })
     }
 
-
-    // Do user input here
-    for (var i = 0; i < pixels.length; i++) {
-      var pixel = pixels[i];
-      pixel.g = 0;
-      pixel.b = 0;
-    }
+    computeUserInput(pixels);
 
     // Put the pixels back into image data form
     for (var i = 0, j = 0; i < pixels.length; i++, j += 4) {
@@ -101,6 +98,18 @@ var webcam = (function() {
 
   }
 
+  function computeUserInput(pixels) {
+
+    var input = editor.getValue();
+
+    try {
+      eval(input);
+      filter(pixels);
+    } catch(e) {
+    }
+
+  }
+
   // Setup is public
   return {
     setup: setup
@@ -108,6 +117,4 @@ var webcam = (function() {
 
 })();
 
-window.onload = function(){
-  webcam.setup();
-};
+window.webcam = webcam;
