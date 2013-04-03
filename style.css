@@ -1,0 +1,17 @@
+
+#user-video {
+  display: block;
+  box-shadow: 3px 5px 25px #000;
+}
+
+#c1 {
+  display: block;
+  box-shadow: 3px 5px 25px #000;
+}
+
+.video-wrapper div {
+  float: left;
+  margin: 10px;
+}
+
+
