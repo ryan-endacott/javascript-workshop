@@ -14,6 +14,8 @@ var webcam = (function() {
 
   var status;
 
+  var imageDiv;
+
   var FPS = 1000 / 30;
 
 
@@ -40,11 +42,15 @@ var webcam = (function() {
       canvas = document.getElementById("c1");
       ctx = canvas.getContext("2d");
 
+      canvas.onclick = takePic;
+
       hiddenCanvas = document.getElementById("hidden-canvas");
       hiddenCtx = hiddenCanvas.getContext("2d");
 
-      // Get status element
+      // Get other elements
       status = document.getElementById('status');
+      imageDiv = document.getElementById('image-div');
+
 
 
       // Set up event to kickstart everything
@@ -136,6 +142,17 @@ var webcam = (function() {
       status.style.backgroundColor = '#FBE3E4';
     }
 
+  }
+
+  // Add an image to the bottom of the page
+  function takePic() {
+
+    var dataURL = canvas.toDataURL();
+
+    var img = document.createElement('img');
+    img.src = dataURL;
+
+    imageDiv.appendChild(img);
   }
 
   // Setup is public
