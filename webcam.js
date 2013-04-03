@@ -84,6 +84,7 @@ var webcam = (function() {
         r: rawPixels[i],
         g: rawPixels[i + 1],
         b: rawPixels[i + 2],
+        a: rawPixels[i + 3],
         x: pos % width,
         y: Math.floor(pos/width)
       });
@@ -97,6 +98,7 @@ var webcam = (function() {
       rawPixels[j] = pixels[i].r;
       rawPixels[j + 1] = pixels[i].g;
       rawPixels[j + 2] = pixels[i].b;
+      rawPixels[j + 3] = pixels[i].a;
     }
 
     // Finally, draw pixels to screen
