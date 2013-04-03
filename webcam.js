@@ -12,6 +12,8 @@ var webcam = (function() {
 
   var editor;
 
+  var status;
+
   var FPS = 1000 / 30;
 
 
@@ -40,6 +42,9 @@ var webcam = (function() {
 
       hiddenCanvas = document.getElementById("hidden-canvas");
       hiddenCtx = hiddenCanvas.getContext("2d");
+
+      // Get status element
+      status = document.getElementById('status');
 
 
       // Set up event to kickstart everything
@@ -117,9 +122,18 @@ var webcam = (function() {
     var input = editor.getValue();
 
     try {
+      // Get user filter function then use it
       eval(input);
       filter(pixels);
+
+      // status messages
+      status.innerHTML = 'Interpreted Successfully';
+      status.style.color = '#264409';
+      status.style.backgroundColor = '#C6D880';
     } catch(e) {
+      status.innerHTML = e;
+      status.style.color = '#8A1F11';
+      status.style.backgroundColor = '#FBE3E4';
     }
 
   }
