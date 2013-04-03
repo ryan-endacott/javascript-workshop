@@ -77,11 +77,17 @@ var webcam = (function() {
 
     // Build pixels array
     for(var i = 0; i < rawPixels.length; i += 4) {
+
+      var pos = i / 4;
+
       pixels.push({
         r: rawPixels[i],
         g: rawPixels[i + 1],
         b: rawPixels[i + 2],
-      })
+        x: pos % width,
+        y: Math.floor(pos/width)
+      });
+
     }
 
     computeUserInput(pixels);
