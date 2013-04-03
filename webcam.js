@@ -161,5 +161,3 @@ var webcam = (function() {
   }
 
 })();
-
-window.webcam = webcam;
