@@ -65,6 +65,7 @@ var webcam = (function() {
       }, false);
 
     }, function(err) {
+      alert('Error accessing webcam.');
       console.log(err);
     })
   }
