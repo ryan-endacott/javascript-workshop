@@ -22,6 +22,12 @@ var webcam = (function() {
   // Setup takes the ACE editor as input
   function setup(textEditor) {
 
+    setupWebcam(textEditor);
+
+  }
+
+  function setupWebcam(textEditor) {
+
     editor = textEditor;
 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -67,7 +73,7 @@ var webcam = (function() {
     }, function(err) {
       alert('Error accessing webcam.');
       console.log(err);
-    })
+    });
   }
 
   function timerCallback() {
