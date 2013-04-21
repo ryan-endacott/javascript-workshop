@@ -22,7 +22,18 @@ var webcam = (function() {
   // Setup takes the ACE editor as input
   function setup(textEditor) {
 
+    setupFPSHandler();
     setupWebcam(textEditor);
+
+  }
+
+  function setupFPSHandler() {
+
+    var FPSInput = document.querySelector('#fps-input');
+
+    FPSInput.onchange = function () {
+      FPS = 1000 / FPSInput.value;
+    }
 
   }
 

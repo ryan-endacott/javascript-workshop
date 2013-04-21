@@ -3,6 +3,10 @@ h2 {
   margin: 0px;
 }
 
+#fps-div {
+  position: absolute;
+}
+
 #user-video {
   width: 520px;
   height: 390px;
