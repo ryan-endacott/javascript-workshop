@@ -1,5 +1,5 @@
 // Basic JavaScript Syntax guide/cheat sheet
-// Also has jQuery basics
+// Also has jQuery basics toward the bottom
 
 // JavaScript must be embedded in script tags
 /*
@@ -20,7 +20,8 @@ alert('hello world')
 // Unlike C, type doesn't matter
 var i;  
 var j = 10;
-var k = 'Hello';
+var k = 'Hello'; // JS String
+var str = "It can also use double quotes.";
 
 // Can even change types
 k = 5;
@@ -132,6 +133,59 @@ derivSquare(10); // About 20
 // And it should work for any function you give it!
 
 
+// jQuery basics!
+// jQuery is a JavaScript library that normalizes the browser API.
+// It makes it much easier to work with!
+// $ is jQuery - use it with CSS selectors
 
+$('div');  // Selects all div elements
+$('#btn');  // Selects the element with id of "btn"
+$('.user'); // Selects all elements with a class of "user"
 
+// Wrap existing elements
+$(document);
 
+// Wrap all of your code in a document.ready
+$(document).ready(function() {
+  // Your code here
+  // This way, if it uses html elements,
+  // this makes sure that they are loaded before
+  // you try to use them.
+  // Otherwise you could get an error
+});
+
+// You can do lots of cool stuff with jQuery's help:
+var btn = $('#btn');
+
+// Pass a function that will execute when the button is clicked.
+btn.click(function() {
+  alert('Hi!  You clicked me!');
+});
+
+// Hide elements
+$('div').hide();
+
+// Animate elements
+btn.animate({
+  top: 100,
+  left: 500
+});
+
+// Make requests to another server:
+$.ajax({
+  url: 'http://isithackday.com/arrpi.php', // Location of the pirate API
+  dataType: 'jsonp', // Format type
+  data: { // Data to send in the request.  
+    text: 'Hello world!', // Text to translate
+    format: 'json' // Type of response we want
+  },
+  success: function (data) { // What to do if the call succeeds
+    // Data comes back for this API in the form:
+    // {translation: {english: 'Hello World', pirate: 'Ahoy world!'}}
+    // Set all paragraphs to hold the text
+    $('p').text(data.translation.pirate); 
+  }
+});
+
+// Check out the official jQuery documentation for more awesome features!
+// There are also tons of plugins available.  Find them with Google!  
