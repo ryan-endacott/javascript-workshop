@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Awesome jQuery Game!</title>
+  <script src="../jquery.js"></script>
+  <script>
+
+    $(document).ready(function () {
+
+
+      // define object
+      var person = {
+        name: 'Ryan',
+        age: 18
+      }
+
+
+      var input = $('#txt');
+      input.calendar();
+
+
+
+      var height = $(window).height();
+      var width = $(window).width();
+
+      var btn = $('#btn');
+
+      var score = $('#score');
+
+      var count = 0;
+
+      btn.click(function() {
+
+        count++;
+
+        score.text(count);
+
+
+        var h = Math.random() * height;
+        var w = Math.random() * width;
+        btn.animate({
+          top: h,
+          left: w
+        });
+
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <span id="score">0</span>
+
+  <button id="btn" style="position:absolute;top:50px;">Click here</button>
+  <input type="text" id="txt">
+
+</body>
+</html>
