@@ -33,7 +33,7 @@ var webcam = (function() {
 
     FPSInput.onchange = function () {
       FPS = 1000 / FPSInput.value;
-    }
+    };
 
   }
 
