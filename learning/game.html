@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Awesome jQuery Game!</title>
+  <script src="../jquery.js"></script>
+  <script>
+    // Functions can be assigned to variables!
+    var start = function() {
+
+      // Select the btn with jQuery
+      // ID of btn
+      var btn = $('#btn');
+
+      // Select the score span
+      var scoreTxt = $('#score');
+      var score = 0;
+
+      // Get the window width and height
+      var height = $(window).height();
+      var width = $(window).width();
+
+      // Pass click a function that executes when
+      // btn is clicked
+      btn.click(function() { // Anonymous function without a name, defined on the fly!
+
+        // Increase score
+        score++;
+
+        // Set the text of the score span to be the new score
+        scoreTxt.text(score);
+
+        // Use JavaScript Math.random to get random new top and left
+        var newTop = Math.random() * height; // Get a number between 0 and height
+        var newLeft = Math.random() * width; // Get a number between 0 and width
+
+        // JavaScript object to pass to the animation function supplied by jQuery
+        var newStyle = {
+          top: newTop,
+          left: newLeft
+        };
+
+        // Animate the button to the new position
+        btn.animate(newStyle);
+
+      });
+    };
+
+    // Functions can be passed as arguments
+    // This ensures that the HTML is loaded
+    // before your JS runs
+    $(document).ready(start);
+
+  </script>
+</head>
+<body>
+  <div>Score: <span id="score">0</span>
+  <button id="btn" style="position:absolute;top:50px;">Click here</button>
+</body>
+</html>
