@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Awesome jQuery Game!</title>
+  <script src="../jquery.js"></script>
+  <script>
+    // Functions can be assigned to variables!
+    var start = function() {
+
+      // Select the element with id="btn"
+      var btn = $('#btn');
+
+      // Select the element with id="userinput"
+      var input = $('#userinput');
+
+      // Select the element with id="pirateoutput"
+      var output = $('#pirateoutput');
+
+      // Pass a function to do when the button is clicked
+      btn.click(function() {
+
+        // Get the current value of the input textbox
+        var txt = input.val();
+
+        // jQuery AJAX request to another website than does the translation
+        // An AJAX (Asynchronous JavaScript and XML) request is just a request
+        // in the background that doesn't reload the page.
+        $.ajax({
+          url: 'http://isithackday.com/arrpi.php', // The site that will translate
+          data: { // Data to send to the site
+            text: txt, // The text to be translated
+            format: 'json' // The format we want the data in
+          },
+          dataType: 'jsonp', // The datatype we're using for the request.  
+          //JSONP allows the request to be to a different website.
+          // This is typically disabled for security reasons.
+          success: function(data) { // Function to execute if the request works
+
+            // Set the output text to be the pirate translation
+            output.text(data.translation.pirate);
+
+          }
+        });
+
+      });
+
+    };
+
+    // Functions can be passed as arguments
+    // This ensures that the HTML is loaded
+    // before your JS runs
+    $(document).ready(start);
+  </script>
+</head>
+<body>
+  <h1>Your input:</h1>
+  <input id="userinput" type="text" value="Hello world!">
+  <h1>Pirate output:</h1>
+  <p id="pirateoutput">Ahoy world!</p>
+  <button id="btn">Click here</button>
+</body>
+</html>
