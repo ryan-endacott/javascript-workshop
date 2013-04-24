@@ -34,7 +34,7 @@ var arr2 = [1, 'hello', 2, 'world'];
 
 // For loop:
 for (var i = 0; i < 10; i++) {
-  console.log('i is ' + i);
+  console.log('i is ' + i); // console.log prints the statement to the browser console (F12)
 }
 
 // While loop:
