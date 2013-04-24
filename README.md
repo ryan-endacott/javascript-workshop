@@ -35,7 +35,7 @@ Note: Due to browser security issues, it won't work locally unless you serve it 
 ## jQuery and HTML Manipulation
 The second portion of the workshop involved making a few small jQuery demos.  We began with the template HTML in [learning/start.html](learning/start.html).  Then we learned about finding elements with CSS selectors, handling events, and more.  The finished demos can be located in the other files in the learning folder.  The demos included:
 * A small point and click jQuery game, found in [learning/game.html](learning/game.html).
-* A page that displays textbox input in a popup when a button is clicked, found in [learning/parrot.html](learning/parrot.html)
+* A page that displays textbox input in a popup when a button is clicked, found in [learning/parrot.html](learning/parrot.html).
 * A page that makes a call to a [translation service](http://isithackday.com/arrpi.php) to convert user input to pirate speak, found in [learning/pirate.html](learning/pirate.html).
 
 ## Miscellaneous
